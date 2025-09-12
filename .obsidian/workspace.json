@@ -1,0 +1,235 @@
+{
+  "main": {
+    "id": "7a7f08418c80bc37",
+    "type": "split",
+    "children": [
+      {
+        "id": "137fe0519e97d957",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b29b736eb08389df",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Ejemplos/6.E-Integración de funciones racionales usando fracciones simples.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "6.E-Integración de funciones racionales usando fracciones simples"
+            }
+          },
+          {
+            "id": "96c6daf0a17711a5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Ejemplos/6.E-Integración de funciones racionales usando fracciones simples.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "6.E-Integración de funciones racionales usando fracciones simples"
+            }
+          },
+          {
+            "id": "c8105f2f15a75fcc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "7. Integrales Impropias.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "7. Integrales Impropias"
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "c43bf165a9eead3a",
+    "type": "split",
+    "children": [
+      {
+        "id": "c62fd8114957e04b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1a4eaec012ade75b",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Explorador de archivos"
+            }
+          },
+          {
+            "id": "6290349c0b295080",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Buscar"
+            }
+          },
+          {
+            "id": "71e55e796b269ef3",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Marcadores"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "04ecaf1f8be18b94",
+    "type": "split",
+    "children": [
+      {
+        "id": "bb04d0d3ff2d816e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3d4b67ff19adbed9",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "El problema del área.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Enlaces entrantes de El problema del área"
+            }
+          },
+          {
+            "id": "02444b841bc6af04",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "El problema del área.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Enlaces salientes de El problema del área"
+            }
+          },
+          {
+            "id": "6391cf66281ddd6c",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Etiquetas"
+            }
+          },
+          {
+            "id": "dd39ecaf05ca5268",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "El problema del área.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Esquema de El problema del área"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Abrir selector rápido": false,
+      "graph:Abrir vista gráfica": false,
+      "canvas:Crear nuevo lienzo": false,
+      "daily-notes:Abrir la nota de hoy": false,
+      "templates:Insertar plantilla": false,
+      "command-palette:Abrir paleta de comandos": false
+    }
+  },
+  "active": "c8105f2f15a75fcc",
+  "lastOpenFiles": [
+    "assets/Pasted image 20250911085841.png",
+    "Ejemplos/7.E-Integral convergente o divergente.md",
+    "7. Integrales Impropias.md",
+    "6. Integración de funciones racionales usando fracciones simples.md",
+    "2. Teorema Fundamental del Cálculo.md",
+    "3. La integral definida.md",
+    "4. Método de Sustitución e Integración por Partes para integrales definidas.md",
+    "5. Áreas entre curvas.md",
+    "Demostraciones/6.D-Integral de arctangente.md",
+    "Ejemplos/6.E-Integración de funciones racionales usando fracciones simples.md",
+    "1. El problema del área.md",
+    "Ejemplos/E-Cálculo de área entre curvas.md",
+    "Ejemplos/E-Integración por Partes sobre Integral definida.md",
+    "Demostraciones/D-TFC2.md",
+    "Ejemplos/E-TFC2.md",
+    "Ejemplos/E-TFC1.md",
+    "Ejemplos/E-Aplicación del TFC2 en subintervalos.md",
+    "Demostraciones/D-TFC1.md",
+    "assets/Pasted image 20250902203332.png",
+    "assets/Pasted image 20250902194601.png",
+    "Ejemplos/E-Regla de sustitución en integral definida.md",
+    "Pasted image 20250830185518.png",
+    "Pasted image 20250830182426.png",
+    "assets/Pasted image 20250829200931.png",
+    "assets/Pasted image 20250829200635.png",
+    "assets/Pasted image 20250829193903.png",
+    "Pasted image 20250829193301.png",
+    "assets/Pasted image 20250829194358.png",
+    "assets/Pasted image 20250829100856.png",
+    "Ejemplos",
+    "Demostraciones",
+    "assets"
+  ]
+}

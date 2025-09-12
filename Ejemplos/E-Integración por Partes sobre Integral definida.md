@@ -1,0 +1,1 @@
+Ejemplo: $$\int_1^e \ln(x) \, dx $$$$=[\ln(x) \cdot x]_1^e - \int_1^e x \cdot (1/x) \, dx$$$$= \ln(x) \cdot x |_1^e - \int_1^e 1 \, dx$$ $$= e - 0 - x|_1^e = e - (e-1) = 1 .$$
