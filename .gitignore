@@ -1,0 +1,15 @@
+# Ignorar el estado de la interfaz (evita conflictos de sincronización)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/graph.json
+
+# Ignorar las notas guardadas en la caché (si usas plugins pesados)
+.obsidian/plugins/*/data.json (solo si no quieres guardar la config de un plugin específico)
+
+# incluir los posibles plugins y temas
+!.obsidian/plugins/
+!.obsidian/themes/
+!.obsidian/snippets/
+!.obsidian/app.json
+!.obsidian/appearance.json
+!.obsidian/hotkeys.json
