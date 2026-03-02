@@ -13,3 +13,4 @@ Para que esto sea igual a 1, es necesario que ($0! = 1$).
 ****
 ##### **La convención de $0^0=1$**
 Aclarada un poco en mis notas físicas, pág **3**.
+

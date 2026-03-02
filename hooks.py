@@ -20,6 +20,10 @@ def on_config(config):
                 file_map[file] = os.path.join(root, file)
 
 def on_page_markdown(markdown, page, config, files):
+    if not markdown.strip().startswith('# '):
+        # Tomamos el nombre del archivo (ej: "D-Serie de Taylor")
+        title = page.title if page.title else os.path.basename(page.file.src_path).replace('.md', '')
+        markdown = f"# {title}\n\n{markdown}"
     # buscamos bloques $$ y aseguramos el salto de línea \n\n
     pattern_latex = r'\s*\$\$(.*?)\$\$\s*'
     markdown = re.sub(pattern_latex, r'\n\n$$\1$$\n\n', markdown, flags=re.DOTALL)

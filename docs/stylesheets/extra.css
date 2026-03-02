@@ -42,3 +42,37 @@ article img {
 [data-md-color-scheme="slate"] .md-logo img {
     content: url('../assets/logo2.png');
 }
+
+h2#\__comments {
+    border-top : 1px solid var(--md-accent-fg-color);
+}
+
+.md-content {
+    position: relative; 
+}
+
+.famaf-edit-button {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    color: var(--md-secondary-fg-color) !important;
+    transition: color 0.3s, transform 0.3s;
+    z-index: 10;
+}
+
+.famaf-edit-button:hover {
+    color: var(--md-accent-fg-color) !important; 
+    transform: scale(1.2);
+}
+
+.famaf-edit-button svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+@media screen and (max-width: 76.1875em) {
+    .famaf-edit-button {
+        top: -30px; /* se sube al área del header en móvil ?*/
+    }
+}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="{{ config.repo_url }}/edit/main/docs/{{ page.file.src_path }}" 
+     title="Mejorar esta nota" 
+     class="famaf-edit-button">
+    <span class="twemoji">
+      {% include ".icons/material/pencil-outline.svg" %}
+    </span>
+  </a>
+{{ super() }}
+<hr>
+
+<h2 id="__comments"></h2>
+<div id="giscus-container"></div>
+
+<script>
+    function updateGiscusTheme() {
+        const theme = document.body.getAttribute('data-md-color-scheme') === 'slate' ? 'dark' : 'light';
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (iframe) {
+            iframe.contentWindow.postMessage(
+                { giscus: { setConfig: { theme: theme } } },
+                'https://giscus.app'
+            );
+        }
+    }
+
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.attributeName === 'data-md-color-scheme') {
+                updateGiscusTheme();
+            }
+        });
+    });
+
+    observer.observe(document.body, { attributes: true });
+</script>
+
+<script src="https://giscus.app/client.js" data-repo="tomasccc/CALCII-FAMAF-UNC" data-repo-id="R_kgDOPuzt5g"
+    data-category="General" data-category-id="TU_ID_REAL" data-mapping="pathname" data-strict="0"
+    data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme"
+    data-lang="es" data-loading="lazy" crossorigin="anonymous" async>
+    </script>
+{% endblock %}

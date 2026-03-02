@@ -5,12 +5,16 @@ edit_uri: edit/main/docs/
 
 theme:
   name: material
+  custom_dir: overrides  
   logo: assets/logo.svg
   favicon: assets/logo2.png  
   features:
     - navigation.tabs
     - navigation.top
     - navigation.footer
+    - navigation.instant
+    - navigation.tracking
+    - navigation.prerender
     - search.highlight
     - search.share
     - search.full_text
