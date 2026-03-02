@@ -15,3 +15,30 @@ mjx-container:not([display="true"]) {
 }
 
 
+/* Espaciado y centrado de imágenes */
+article img {
+    display: block;
+    margin-top: 2em !important;    
+    margin-bottom: 2em !important; 
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 4px;            
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+}
+
+.md-logo img {
+    height: 60px !important; 
+    width: auto;
+}
+
+.md-header__button.md-logo {
+    padding: 5px;
+}
+
+[data-md-color-scheme="default"] .md-logo img {
+    content: url('../assets/logo.svg');
+}
+
+[data-md-color-scheme="slate"] .md-logo img {
+    content: url('../assets/logo2.png');
+}

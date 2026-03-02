@@ -2,6 +2,8 @@ import re
 import os
 
 file_map = {}
+# Extensiones de imagen soportadas
+image_extensions = ('.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp')
 
 def on_config(config):
     file_map.clear()
@@ -13,11 +15,30 @@ def on_config(config):
                 name = file[:-3] # quitamos el .md para el índice
                 # se guarda la ruta
                 file_map[name] = os.path.join(root, file)
+            # indexa archivos de imagen usando su nombre completo
+            elif file.lower().endswith(image_extensions):
+                file_map[file] = os.path.join(root, file)
 
 def on_page_markdown(markdown, page, config, files):
     # buscamos bloques $$ y aseguramos el salto de línea \n\n
     pattern_latex = r'\s*\$\$(.*?)\$\$\s*'
     markdown = re.sub(pattern_latex, r'\n\n$$\1$$\n\n', markdown, flags=re.DOTALL)
+
+    # funcionalidad para procesar imágenes ![[imagen.png]]
+    # funcionalidad para procesar imágenes ![[imagen.png]]
+    def replace_image(match):
+        content = match.group(1).split('|') 
+        img_name = content[0].strip()
+        
+        if img_name in file_map:
+            target_path = file_map[img_name]
+            current_dir = os.path.dirname(page.file.abs_src_path)
+            rel_link = os.path.relpath(target_path, current_dir)
+            return f'\n\n![{img_name}]({rel_link})\n\n'
+        return f'\n\n*Imagen no encontrada: {img_name}*\n\n'
+
+    # aplica la conversión de imágenes antes que la de links
+    markdown = re.sub(r'!\[\[(.*?)\]\]', replace_image, markdown)
 
     # corrección de hipervínculos
     def replace_link(match):

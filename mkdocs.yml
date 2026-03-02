@@ -1,13 +1,27 @@
-site_name: CÁLCULO II - Tomás Caruso
+site_name: CÁLCULO II - FAMAF - UNC
+repo_url: https://github.com/tomasccc/CALCII-FAMAF-UNC
+repo_name: tomasccc/CALCII-FAMAF-UNC
+edit_uri: edit/main/docs/
 
 theme:
   name: material
+  logo: assets/logo.svg
+  favicon: assets/logo2.png  
+  features:
+    - navigation.tabs
+    - navigation.top
+    - navigation.footer
+    - search.highlight
+    - search.share
+    - search.full_text
+    - search.math
+    - search.suggest
   font:
     text: Inter
     code: Inter
   palette:
     - scheme: default
-      primary: blue grey
+      primary: white
       accent: indigo
       toggle:
         icon: material/brightness-7
@@ -18,8 +32,22 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Cambiar a modo claro
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/tomasccc
+      name: Mi GitHub
+    - icon: fontawesome/brands/linux
+      link: https://linuxmint.com/
+      name: Linux Mint
+plugins:
+  - search
+# ------------------------------------------------------------
+
 hooks:
   - hooks.py
+
 extra_css:
   - stylesheets/extra.css
 
@@ -28,7 +56,7 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.arithmatex:
-      generic: true # Esto solo envuelve la matemática en un <span> para que JS la encuentre
+      generic: true 
 
 extra_javascript:
   - javascripts/mathjax.js
