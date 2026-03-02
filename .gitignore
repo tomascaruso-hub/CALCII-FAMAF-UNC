@@ -3,4 +3,6 @@
 .DS_Store
 Thumbs.db
 
-site/
+site/   
+.venv/
+__pycache__/

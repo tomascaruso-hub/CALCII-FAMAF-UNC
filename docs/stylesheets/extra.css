@@ -1,0 +1,17 @@
+
+
+/*  (Display Math - $$) */
+mjx-container[display="true"] {
+    margin-top: 1em !important;    
+    margin-bottom: 1em !important; 
+    display: block;
+    outline: none;
+}
+
+mjx-container:not([display="true"]) {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding: 0 0.1em; 
+}
+
+
