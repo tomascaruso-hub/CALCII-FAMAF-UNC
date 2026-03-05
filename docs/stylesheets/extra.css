@@ -15,7 +15,6 @@ mjx-container:not([display="true"]) {
 }
 
 
-/* Espaciado y centrado de imágenes */
 article img {
     display: block;
     margin-top: 2em !important;    
@@ -36,7 +35,7 @@ article img {
 }
 
 [data-md-color-scheme="default"] .md-logo img {
-    content: url('../assets/logo.svg');
+    content: url('../assets/logo.png');
 }
 
 [data-md-color-scheme="slate"] .md-logo img {

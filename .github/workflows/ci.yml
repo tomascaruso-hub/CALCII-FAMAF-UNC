@@ -1,0 +1,34 @@
+name: Deploy Notas FAMAF
+
+on:
+  push:
+    branches:
+      - main  
+
+permissions:
+  contents: write 
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el código
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+
+      - name: Instalar dependencias gráficas del sistema (Para Social Cards)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev
+
+      - name: Instalar dependencias de MkDocs
+        run: |
+          pip install mkdocs-material
+          pip install "mkdocs-material[imaging]"
+
+      - name: Construir y publicar en GitHub Pages
+        run: mkdocs gh-deploy --force

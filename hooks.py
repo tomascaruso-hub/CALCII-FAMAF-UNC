@@ -2,7 +2,7 @@ import re
 import os
 
 file_map = {}
-# Extensiones de imagen soportadas
+# extensiones de imagen soportadas
 image_extensions = ('.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp')
 
 def on_config(config):
@@ -21,15 +21,14 @@ def on_config(config):
 
 def on_page_markdown(markdown, page, config, files):
     if not markdown.strip().startswith('# '):
-        # Tomamos el nombre del archivo (ej: "D-Serie de Taylor")
+        # tomamos el nombre del archivo 
         title = page.title if page.title else os.path.basename(page.file.src_path).replace('.md', '')
         markdown = f"# {title}\n\n{markdown}"
     # buscamos bloques $$ y aseguramos el salto de línea \n\n
     pattern_latex = r'\s*\$\$(.*?)\$\$\s*'
     markdown = re.sub(pattern_latex, r'\n\n$$\1$$\n\n', markdown, flags=re.DOTALL)
 
-    # funcionalidad para procesar imágenes ![[imagen.png]]
-    # funcionalidad para procesar imágenes ![[imagen.png]]
+    # funcionalidad para procesar imágenes ![[imagen.png]] o ![[imagen.png|Texto alternativo]]
     def replace_image(match):
         content = match.group(1).split('|') 
         img_name = content[0].strip()
@@ -41,7 +40,6 @@ def on_page_markdown(markdown, page, config, files):
             return f'\n\n![{img_name}]({rel_link})\n\n'
         return f'\n\n*Imagen no encontrada: {img_name}*\n\n'
 
-    # aplica la conversión de imágenes antes que la de links
     markdown = re.sub(r'!\[\[(.*?)\]\]', replace_image, markdown)
 
     # corrección de hipervínculos

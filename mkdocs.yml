@@ -1,4 +1,5 @@
 site_name: CÁLCULO II - FAMAF - UNC
+site_url: https://tomasccc.github.io/CALCII-FAMAF-UNC/
 repo_url: https://github.com/tomasccc/CALCII-FAMAF-UNC
 repo_name: tomasccc/CALCII-FAMAF-UNC
 edit_uri: edit/main/docs/
@@ -6,13 +7,12 @@ edit_uri: edit/main/docs/
 theme:
   name: material
   custom_dir: overrides  
-  logo: assets/logo.svg
+  logo: assets/logo.png
   favicon: assets/logo2.png  
   features:
     - navigation.tabs
     - navigation.top
     - navigation.footer
-    - navigation.instant
     - navigation.tracking
     - navigation.prerender
     - search.highlight
@@ -47,7 +47,11 @@ extra:
       name: Linux Mint
 plugins:
   - search
-# ------------------------------------------------------------
+  - social:
+      cards_layout_options:
+        background_color: "#3f51b5"  
+        color: "#ffffff"            
+        font_family: Inter           
 
 hooks:
   - hooks.py
