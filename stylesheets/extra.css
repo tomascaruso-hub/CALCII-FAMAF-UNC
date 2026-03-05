@@ -1,0 +1,77 @@
+
+
+/*  (Display Math - $$) */
+mjx-container[display="true"] {
+    margin-top: 1em !important;    
+    margin-bottom: 1em !important; 
+    display: block;
+    outline: none;
+}
+
+mjx-container:not([display="true"]) {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding: 0 0.1em; 
+}
+
+
+article img {
+    display: block;
+    margin-top: 2em !important;    
+    margin-bottom: 2em !important; 
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 4px;            
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+}
+
+.md-logo img {
+    height: 60px !important; 
+    width: auto;
+}
+
+.md-header__button.md-logo {
+    padding: 5px;
+}
+
+[data-md-color-scheme="default"] .md-logo img {
+    content: url('../assets/logo.png');
+}
+
+[data-md-color-scheme="slate"] .md-logo img {
+    content: url('../assets/logo2.png');
+}
+
+h2#\__comments {
+    border-top : 1px solid var(--md-accent-fg-color);
+}
+
+.md-content {
+    position: relative; 
+}
+
+.famaf-edit-button {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    color: var(--md-secondary-fg-color) !important;
+    transition: color 0.3s, transform 0.3s;
+    z-index: 10;
+}
+
+.famaf-edit-button:hover {
+    color: var(--md-accent-fg-color) !important; 
+    transform: scale(1.2);
+}
+
+.famaf-edit-button svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+@media screen and (max-width: 76.1875em) {
+    .famaf-edit-button {
+        top: -30px; /* se sube al área del header en móvil ?*/
+    }
+}
