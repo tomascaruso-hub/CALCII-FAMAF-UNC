@@ -32,7 +32,7 @@ jobs:
       - name: Instalar dependencias de MkDocs
         run: |
           pip install -r requirements.txt
-          pip install "mkdocs<2.0" mkdocs-git-revision-date-localized-plugin mkdocs-git-authors-plugin
+          pip install "mkdocs<2.0" mkdocs-material mkdocs-git-revision-date-localized-plugin mkdocs-git-committers-plugin-2 mkdocs-git-authors-plugin
 
       - name: Construir y publicar en GitHub Pages
         run: mkdocs gh-deploy --force
