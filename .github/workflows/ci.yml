@@ -32,17 +32,13 @@ jobs:
       - name: Instalar dependencias de MkDocs
         run: |
           pip install -r requirements.txt
-          # Aseguramos que los plugins dinámicos estén instalados
-          pip install "mkdocs<2.0" mkdocs-material mkdocs-git-revision-date-localized-plugin mkdocs-git-committers-plugin-2 mkdocs-git-authors-plugin mkdocs-awesome-pages-plugin
+          pip install "mkdocs<2.0" mkdocs-material mkdocs-git-revision-date-localized-plugin mkdocs-git-committers-plugin-2 mkdocs-git-authors-plugin mkdocs-awesome-pages-plugin mkdocs-macros-plugin
 
       - name: 🛠️ Configurar Variables de Entorno Dinámicas
         id: vars
         run: |
-          # 1. Extraemos el nombre del repo (ej: ALGEBRA-LINEAL-FAMAF)
           RAW_REPO_NAME=$(echo "${{ github.repository }}" | cut -d'/' -f2)
           
-          # 2. Limpiamos: guiones por espacios, a mayúsculas y quitamos sufijos si existen
-          # 'algebra-lineal-famaf' -> 'ALGEBRA LINEAL - FAMAF'
           CLEAN_NAME=$(echo $RAW_REPO_NAME | tr '-' ' ' | tr '[:lower:]' '[:upper:]')
           
           # 3. Guardamos para los siguientes pasos

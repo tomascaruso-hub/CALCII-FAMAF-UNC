@@ -2,6 +2,6 @@ nav:
   - Bienvenido/a: index.md
   - comunidad
   - oficial
-  - Conversor OCR: conversor.md
-  - Guía de Contribución: Guía de contribución.md
+  - Conversor OCR: ocr.md
+  - Guía de Contribución: contribution-guide.md
   - Índice: tags.md

@@ -52,6 +52,7 @@ extra:
 plugins:
   - search
   - awesome-pages 
+  - macros      
   - tags:
       tags_file: tags.md
   - social:
