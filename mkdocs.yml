@@ -1,9 +1,11 @@
-site_name: CÁLCULO II - FAMAF - UNC
-site_description: "Apuntes colaborativos y ejercicios resueltos de Cálculo II para estudiantes de la FAMAF - UNC."
-site_url: https://tomasccc.github.io/CALCII-FAMAF-UNC/
-repo_url: https://github.com/tomasccc/CALCII-FAMAF-UNC
-repo_name: tomasccc/CALCII-FAMAF-UNC
-edit_uri: edit/main/docs/
+site_name: !ENV [SITE_NAME, "Apuntes FAMAF"]
+site_description: !ENV [SITE_DESCRIPTION, "Apuntes colaborativos y ejercicios resueltos para estudiantes de la FAMAF - UNC."]
+site_url: !ENV [SITE_URL, "https://tomasccc.github.io/"]
+
+repo_url: !ENV [REPO_URL, "https://github.com/tomasccc/apuntes-famaf"]
+repo_name: !ENV [REPO_NAME, "tomasccc/apuntes-famaf"]
+edit_uri: !ENV [EDIT_URI, "edit/main/docs/"]
+
 theme:
   name: material
   custom_dir: overrides  
@@ -20,6 +22,7 @@ theme:
     - search.full_text
     - search.math
     - search.suggest
+    - navigation.indexes 
   font:
     text: Inter
     code: Inter
@@ -45,8 +48,11 @@ extra:
     - icon: fontawesome/brands/linux
       link: https://linuxmint.com/
       name: Linux Mint
+
 plugins:
   - search
+  - awesome-pages 
+  - macros      
   - tags:
       tags_file: tags.md
   - social:
@@ -59,7 +65,7 @@ plugins:
       type: timeago
       fallback_to_build_date: true
   - git-committers:
-      repository: tomasccc/CALCII-FAMAF-UNC
+      repository: !ENV [REPO_NAME, "tomasccc/apuntes-famaf"] # Dinámico para cada materia
       branch: main
   - git-authors:
       show_contribution: true
