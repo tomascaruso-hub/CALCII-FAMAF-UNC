@@ -35,5 +35,4 @@ jobs:
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
           gh pr review $PR_NUMBER --approve -b "**¡Aporte de comunidad detectado!**<br>Se fusionará automáticamente en cuanto todos los checks obligatorios (checklist) estén en verde."
-          
-          gh pr merge $PR_NUMBER --merge --auto --delete-branch
+          gh pr merge $PR_NUMBER --merge --auto --delete-branch || echo "El auto-merge se activará cuando los checks terminen."
