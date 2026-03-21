@@ -2,7 +2,7 @@ name: Bot de Auto-Aprobación Comunitaria
 
 on:
   pull_request_target:
-    types: [opened, synchronize, reopened]
+    types: [opened, synchronize, reopened, edited]
 
 permissions:
   pull-requests: write
@@ -25,11 +25,12 @@ jobs:
             comunidad:
               - 'docs/comunidad/**'
 
-      - name: Aprobar y Fusionar (solo si es 100% comunidad)
-        # si tocó la comunidad, pero no tocó nada oficial, procedemos.
+      - name: Aprobar y Programar Auto-Merge
         if: steps.archivos.outputs.comunidad == 'true' && steps.archivos.outputs.oficial == 'false'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
-          gh pr review ${{ github.event.pull_request.number }} --approve -b "**¡Aporte detectado y aprobado automáticamente!**<br>El Oráculo lo ha revisado y lo fusionará en el sitio en los próximos minutos. ¡Gracias por colaborar con las notas!"
-          gh pr merge ${{ github.event.pull_request.number }} --merge --auto
+          gh pr review $PR_NUMBER --approve -b "**¡Aporte de comunidad detectado!**<br>Se fusionará automáticamente en cuanto todos los checks obligatorios (checklist) estén en verde."
+          
+          gh pr merge $PR_NUMBER --merge --auto --delete-branch
