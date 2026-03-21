@@ -1,0 +1,25 @@
+name: "Verificar Checklist Obligatorio"
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+
+jobs:
+  check-tasklist:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validar solo checks obligatorios
+        env:
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          if [ -z "$PR_BODY" ]; then
+            echo "Error: La descripción está vacía."
+            exit 1
+          fi
+
+          if echo "$PR_BODY" | grep "(Obligatorio)" | grep -q "\[ \]"; then
+            echo "Error: Faltan marcar casilleros obligatorios."
+            exit 1
+          else
+            echo "Checks obligatorios completados."
+          fi

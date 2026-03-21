@@ -1,6 +1,4 @@
----
-asistente_ia: true
----
+
 
 # Bienvenido/a
 Este sitio es una **herramienta para recopilar material de estudio de la materia en cuestión**, permitiendo además la colaboración de alumnos. 
