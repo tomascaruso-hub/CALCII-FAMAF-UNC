@@ -19,3 +19,5 @@ Tenés también un **oráculo** abajo a la derecha, el cual es un chatbot alimen
 Espero te sea de utilidad, y que puedas colaborar con el sitio para que cada vez sea mejor. [Tomás](https://github.com/tomasccc) (desarrollador de esto), creó este mini proyecto, integrando otros mini proyectos, con la intención de facilitar el acceso a material de estudio, y de fomentar la colaboración entre alumnos, así que de más está decir que cualquier aporte es bienvenido.
 ![a](https://media.tenor.com/N40-4WgNinAAAAAM/tobey-maguire-hello.gif)
 Abrazo grande.
+
+cambio desde otra cuenta
