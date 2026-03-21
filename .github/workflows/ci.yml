@@ -34,7 +34,7 @@ jobs:
           pip install -r requirements.txt
           pip install "mkdocs<2.0" mkdocs-material mkdocs-git-revision-date-localized-plugin mkdocs-git-committers-plugin-2 mkdocs-git-authors-plugin mkdocs-awesome-pages-plugin mkdocs-macros-plugin
 
-      - name: 🛠️ Configurar Variables de Entorno Dinámicas
+      - name: Configurar Variables de Entorno Dinámicas
         id: vars
         run: |
           RAW_REPO_NAME=$(echo "${{ github.repository }}" | cut -d'/' -f2)
