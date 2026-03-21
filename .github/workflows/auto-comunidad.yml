@@ -12,6 +12,9 @@ jobs:
   auto-merge-comunidad:
     runs-on: ubuntu-latest
     steps:
+      - name: Descargar código
+        uses: actions/checkout@v4
+
       - name: Analizar qué carpetas se modificaron
         id: archivos
         uses: dorny/paths-filter@v3

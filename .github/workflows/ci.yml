@@ -3,10 +3,10 @@ name: Deploy Notas FAMAF
 on:
   push:
     branches:
-      - main  
+      - main  # solo se dispara cuando algo llega a main
 
 permissions:
-  contents: write 
+  contents: write # necesario para publicar en gh-pages
 
 jobs:
   deploy:
@@ -15,7 +15,7 @@ jobs:
       - name: Descargar el código
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 
+          fetch-depth: 0
 
       - name: Configurar Python y caché de pip
         uses: actions/setup-python@v5
@@ -24,7 +24,7 @@ jobs:
           cache: pip
           cache-dependency-path: requirements.txt
 
-      - name: Instalar dependencias gráficas del sistema (Para Social Cards)
+      - name: Instalar dependencias gráficas
         run: |
           sudo apt-get update
           sudo apt-get install -y libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev
@@ -32,26 +32,31 @@ jobs:
       - name: Instalar dependencias de MkDocs
         run: |
           pip install -r requirements.txt
-          pip install "mkdocs<2.0" mkdocs-material mkdocs-git-revision-date-localized-plugin mkdocs-git-committers-plugin-2 mkdocs-git-authors-plugin mkdocs-awesome-pages-plugin mkdocs-macros-plugin
+          pip install "mkdocs>=1.6.0,<2.0" \
+                      mkdocs-material \
+                      mkdocs-git-revision-date-localized-plugin \
+                      mkdocs-git-committers-plugin-2 \
+                      mkdocs-git-authors-plugin \
+                      mkdocs-awesome-pages-plugin \
+                      mkdocs-macros-plugin
 
       - name: Configurar Variables de Entorno Dinámicas
         id: vars
         run: |
           RAW_REPO_NAME=$(echo "${{ github.repository }}" | cut -d'/' -f2)
-          
           CLEAN_NAME=$(echo $RAW_REPO_NAME | tr '-' ' ' | tr '[:lower:]' '[:upper:]')
           
-          # 3. Guardamos para los siguientes pasos
           echo "SITE_NAME=$CLEAN_NAME" >> $GITHUB_ENV
           echo "SITE_URL=https://${{ github.repository_owner }}.github.io/$RAW_REPO_NAME/" >> $GITHUB_ENV
           echo "REPO_URL=https://github.com/${{ github.repository }}" >> $GITHUB_ENV
-          echo "REPO_NAME=${{ github.repository }}" >> $GITHUB_ENV
 
       - name: Construir y publicar en GitHub Pages
-        run: mkdocs gh-deploy --force
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          mkdocs gh-deploy --force
         env:
           SITE_NAME: ${{ env.SITE_NAME }}
           SITE_URL: ${{ env.SITE_URL }}
           REPO_URL: ${{ env.REPO_URL }}
-          REPO_NAME: ${{ env.REPO_NAME }}
           EDIT_URI: "edit/main/docs/"
