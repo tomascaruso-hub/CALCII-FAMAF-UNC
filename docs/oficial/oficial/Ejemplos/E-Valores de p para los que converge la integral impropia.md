@@ -38,5 +38,6 @@ $$ = \lim_{t \to 0^+} \frac{1}{1-p} \left( 1 - \frac{1}{t^{p-1}} \right) $$
 Si $p > 1$, entonces $p-1 > 0$ y así $\lim_{t \to 0^+} \frac{1}{t^{p-1}} = \infty$, en consecuencia la integral diverge.
 Si $0 < p < 1$, entonces $p-1 < 0$ y así $\lim_{t \to 0^+} \frac{1}{t^{p-1}} = 0$, por lo tanto
 $$ \int_0^1 \frac{1}{x^p} dx = \frac{1}{1-p} \quad \text{si } 0 < p < 1. $$
+****
 Resumiendo, hemos obtenido:
 $$ \int_0^1 \frac{1}{x^p} dx \text{ es convergente si } 0 < p < 1 \text{ y divergente si } p \geq 1. $$
