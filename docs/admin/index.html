@@ -3,9 +3,53 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Editor de Apuntes FaMAF</title>
-  </head>
-  <body>
+    <title>Editor Sveltia</title>
+    
     <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
-  </body>
+    
+    <script>
+      CMS.registerPreviewStyle("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+      CMS.registerPreviewStyle("/stylesheets/extra.css");
+
+      CMS.registerPreviewStyle(`
+        body {
+          font-family: 'Inter', sans-serif;
+          color: rgba(0, 0, 0, 0.87);
+          line-height: 1.6;
+          padding: 20px;
+          background-color: white;
+        }
+        h1, h2, h3, h4, h5, h6 {
+          color: #3f51b5; /* Tu primary color (Indigo) */
+          font-weight: 600;
+          margin-top: 1.5em;
+        }
+        a { color: #536dfe; text-decoration: none; } /* Tu accent color */
+        a:hover { text-decoration: underline; }
+        code {
+          font-family: 'Inter', monospace;
+          background-color: #f5f5f5;
+          padding: 0.2em 0.4em;
+          border-radius: 3px;
+          font-size: 0.85em;
+        }
+        pre {
+          background-color: #f5f5f5;
+          padding: 1em;
+          border-radius: 4px;
+          overflow-x: auto;
+        }
+        blockquote {
+          border-left: 4px solid #3f51b5;
+          margin: 1.5em 0;
+          padding-left: 1em;
+          color: #666;
+        }
+        /* Ajuste para que las imágenes se centren como en tu CSS */
+        img { display: block; margin: 2em auto; max-width: 100%; border-radius: 4px; }
+      `, { raw: true });
+    </script>
+  </head>
+  <body></body>
 </html>

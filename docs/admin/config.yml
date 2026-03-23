@@ -1,15 +1,18 @@
 local_backend: true
-
+locale: es
 backend:
   name: github
   repo: tomasccc/CALCII-FAMAF-UNC
-  branch: main 
+  branch: cms-tests 
 
-# Esto asegura que al guardar se cree un Pull Request y no un push directo
 publish_mode: editorial_workflow
 
-media_folder: "docs/assets"
-public_folder: "assets"
+# Fundamental para que las imágenes se guarden y muestren bien
+# Dónde guarda Sveltia el archivo real en tu código
+media_folder: "docs/assets/comunidad"
+
+# Cómo escribe Sveltia el enlace en el Markdown: ![](...)
+public_folder: "/assets/comunidad"
 
 collections:
   - name: "comunidad"
