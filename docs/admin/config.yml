@@ -1,0 +1,23 @@
+local_backend: true
+
+backend:
+  name: github
+  repo: tomasccc/CALCII-FAMAF-UNC
+  branch: main 
+
+# Esto asegura que al guardar se cree un Pull Request y no un push directo
+publish_mode: editorial_workflow
+
+media_folder: "docs/assets"
+public_folder: "assets"
+
+collections:
+  - name: "comunidad"
+    label: "Aportes de la Comunidad"
+    folder: "docs/comunidad"
+    create: true
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - {label: "Título", name: "title", widget: "string"}
+      - {label: "Contenido", name: "body", widget: "markdown"}
