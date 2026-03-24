@@ -1,1 +1,16 @@
-.confgi
+media:
+  input: public/images
+  output: /images
+
+content:
+  - name: pages
+    label: Pages
+    path: content/pages
+    type: collection
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: body
+        label: Content
+        type: rich-text
