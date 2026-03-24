@@ -3,9 +3,9 @@ media:
   output: /images
 
 content:
-  - name: pages
+  - name: comunidad
     label: Pages
-    path: content/pages
+    path: docs/comunidad
     type: collection
     fields:
       - name: title
