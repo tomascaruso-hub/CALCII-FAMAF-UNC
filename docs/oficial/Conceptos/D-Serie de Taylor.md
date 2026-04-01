@@ -1,3 +1,6 @@
+---
+title: "1212121212"
+---
 Empecemos por suponer que ($f$) es cualquier función que se puede hallar esa representación mediante una serie de potencias
 $$1 \qquad f(x) = c_0 + c_1(x-a) + c_2(x-a)^2 + c_3(x-a)^3 + c_4(x-a)^4 + \cdots \quad |x-a| < R$$
 Tratemos de determinar qué coeficientes ($c_n$) tienen que estar en función de ($f$). Para empezar, observe que si hacemos ($x=a$) en la ecuación 1, entonces todos los términos después del primero son $0$ y obtenemos $f(a) = c_0$.
