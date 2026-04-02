@@ -8,6 +8,6 @@ revision_final:
 ---
 asdasdasdasd
 ## hola comoa
-$$ F(x)=\pi x^2 $$
+$$ F(x)=\pi x^2 $$s
 $$\pi \text{ernas de vainilla} $$
 asd
