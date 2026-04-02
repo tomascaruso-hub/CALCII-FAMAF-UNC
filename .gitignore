@@ -7,3 +7,4 @@ site/
 .venv/
 __pycache__/
 .cache/
+docs/admin/config.yml

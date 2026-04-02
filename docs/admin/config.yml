@@ -28,6 +28,32 @@ collections:
   - label: Cuerpo
     name: body
     widget: markdown
+- name: comunidad_asd
+  label: '📚 Comunidad: asd'
+  folder: docs/comunidad/asd
+  create: true
+  extension: md
+  summary: '{{title}}'
+  fields:
+  - label: Título
+    name: title
+    widget: string
+  - label: Cuerpo
+    name: body
+    widget: markdown
+- name: comunidad_comunidad
+  label: '📚 Comunidad: comunidad'
+  folder: docs/comunidad/comunidad
+  create: true
+  extension: md
+  summary: '{{title}}'
+  fields:
+  - label: Título
+    name: title
+    widget: string
+  - label: Cuerpo
+    name: body
+    widget: markdown
 - name: oficial_raiz
   label: 📂 Oficial (Raíz / Crear Carpeta)
   folder: docs/oficial
