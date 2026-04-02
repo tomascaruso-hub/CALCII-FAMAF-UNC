@@ -3,24 +3,87 @@ locale: es
 backend:
   name: github
   repo: tomasccc/CALCII-FAMAF-UNC
-  branch: cms-tests 
-
-publish_mode: editorial_workflow
-
-# Fundamental para que las imágenes se guarden y muestren bien
-# Dónde guarda Sveltia el archivo real en tu código
-media_folder: "docs/assets/comunidad"
-
-# Cómo escribe Sveltia el enlace en el Markdown: ![](...)
-public_folder: "/assets/comunidad"
-
+  branch: cms-tests
+publish_mode: simple
+media_folder: docs/assets/comunidad
+public_folder: /assets/comunidad
 collections:
-  - name: "comunidad"
-    label: "Aportes de la Comunidad"
-    folder: "docs/comunidad"
-    create: true
-    extension: "md"
-    format: "frontmatter"
-    fields:
-      - {label: "Título", name: "title", widget: "string"}
-      - {label: "Contenido", name: "body", widget: "markdown"}
+- name: comunidad_raiz
+  label: 📂 Comunidad (Raíz / Crear Carpeta)
+  folder: docs/comunidad
+  path: '{{carpeta}}/{{slug}}'
+  create: true
+  extension: md
+  summary: '{{title}}'
+  fields:
+  - label: ¿Crear en subcarpeta nueva? (Opcional)
+    name: carpeta
+    widget: string
+    default: .
+    hint: 'Para guardar en la raíz, dejá el punto. Para crear una carpeta, borrá el
+      punto y escribí el nombre (ej: Unidad 4)'
+  - label: Título
+    name: title
+    widget: string
+  - label: Cuerpo
+    name: body
+    widget: markdown
+- name: oficial_raiz
+  label: 📂 Oficial (Raíz / Crear Carpeta)
+  folder: docs/oficial
+  path: '{{carpeta}}/{{slug}}'
+  create: true
+  extension: md
+  summary: '{{title}}'
+  fields:
+  - label: ¿Crear en subcarpeta nueva? (Opcional)
+    name: carpeta
+    widget: string
+    default: .
+    hint: 'Para guardar en la raíz, dejá el punto. Para crear una carpeta, borrá el
+      punto y escribí el nombre (ej: Unidad 4)'
+  - label: Título
+    name: title
+    widget: string
+  - label: Cuerpo
+    name: body
+    widget: markdown
+- name: oficial_conceptos
+  label: '📚 Oficial: Conceptos'
+  folder: docs/oficial/Conceptos
+  create: true
+  extension: md
+  summary: '{{title}}'
+  fields:
+  - label: Título
+    name: title
+    widget: string
+  - label: Cuerpo
+    name: body
+    widget: markdown
+- name: oficial_series_de_potencias___u3
+  label: '📚 Oficial: Series de potencias - U3'
+  folder: docs/oficial/Series de potencias - U3
+  create: true
+  extension: md
+  summary: '{{title}}'
+  fields:
+  - label: Título
+    name: title
+    widget: string
+  - label: Cuerpo
+    name: body
+    widget: markdown
+- name: oficial_u1_u2
+  label: '📚 Oficial: U1-U2'
+  folder: docs/oficial/U1-U2
+  create: true
+  extension: md
+  summary: '{{title}}'
+  fields:
+  - label: Título
+    name: title
+    widget: string
+  - label: Cuerpo
+    name: body
+    widget: markdown

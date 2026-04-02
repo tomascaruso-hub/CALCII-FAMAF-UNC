@@ -1,5 +1,6 @@
 import re
 import os
+import yaml 
 
 file_map = {}
 # extensiones de imagen soportadas
@@ -8,22 +9,115 @@ image_extensions = ('.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp')
 def on_config(config):
     file_map.clear()
     docs_dir = config['docs_dir']
-    # escaneo de todo el repo
+    
+    # escaneo de todo el repo para los links de Obsidian
     for root, dirs, files in os.walk(docs_dir):
         for file in files:
             if file.endswith(".md"):
                 name = file[:-3] # quitamos el .md para el índice
-                # se guarda la ruta
                 file_map[name] = os.path.join(root, file)
-            # indexa archivos de imagen usando su nombre completo
             elif file.lower().endswith(image_extensions):
                 file_map[file] = os.path.join(root, file)
+
+    # configuración base 
+    decap_config = {
+        'local_backend': True,
+        'locale': 'es',
+        'backend': {
+            'name': 'github',
+            'repo': 'tomasccc/CALCII-FAMAF-UNC',
+            'branch': 'cms-tests'
+        },
+        'publish_mode': 'simple',
+        'media_folder': 'docs/assets/comunidad',
+        'public_folder': '/assets/comunidad',
+        'collections': [] # lo llenamos con las carpetas que encontremos en comunidad/ y oficial/
+    }
+
+    # funcion para escanear y agregar colecciones dinámicamente
+    def scan_and_add_collections(base_folder_name, label_prefix):
+        base_dir = os.path.join(docs_dir, base_folder_name)
+        
+        # agregamos raiz para los archivos sueltos Y crear carpetas
+        decap_config['collections'].append({
+            'name': f"{base_folder_name}_raiz",
+            'label': f"📂 {label_prefix} (Raíz / Crear Carpeta)",
+            'folder': f"docs/{base_folder_name}",
+            'path': '{{carpeta}}/{{slug}}', 
+            'create': True,
+            'extension': 'md',
+            'summary': '{{title}}',
+            'fields': [
+                {
+                    'label': '¿Crear en subcarpeta nueva? (Opcional)', 
+                    'name': 'carpeta', 
+                    'widget': 'string', 
+                    'default': '.', 
+                    'hint': 'Para guardar en la raíz, dejá el punto. Para crear una carpeta, borrá el punto y escribí el nombre (ej: Unidad 4)'
+                },
+                {'label': 'Título', 'name': 'title', 'widget': 'string'},
+                {'label': 'Cuerpo', 'name': 'body', 'widget': 'markdown'}
+            ]
+        })
+
+        #  subcarpetas 
+        if os.path.exists(base_dir):
+            for folder_name in sorted(os.listdir(base_dir)):
+                folder_path = os.path.join(base_dir, folder_name)
+                
+                # ignorando 'assets' o '. noseque'
+                if os.path.isdir(folder_path) and not folder_name.startswith('.') and folder_name.lower() != 'assets':
+                    
+                    # generamos ID interno para Decap que no le gustan los espacios
+                    col_id = f"{base_folder_name}_{re.sub(r'[^a-zA-Z0-9]', '_', folder_name).lower()}"
+
+                    # añadimos la subcarpeta 
+                    decap_config['collections'].append({
+                        'name': col_id,
+                        'label': f"📚 {label_prefix}: {folder_name}",
+                        'folder': f"docs/{base_folder_name}/{folder_name}",
+                        'create': True,
+                        'extension': 'md',
+                        'summary': '{{title}}',
+                        'fields': [
+                            {'label': 'Título', 'name': 'title', 'widget': 'string'},
+                            {'label': 'Cuerpo', 'name': 'body', 'widget': 'markdown'}
+                        ]
+                    })
+
+    # aplicamos a las carpetas
+    scan_and_add_collections('comunidad', 'Comunidad')
+    scan_and_add_collections('oficial', 'Oficial')
+
+    # escribimos el config.yml
+    admin_dir = os.path.join(docs_dir, 'admin')
+    os.makedirs(admin_dir, exist_ok=True) 
+    config_output_path = os.path.join(admin_dir, 'config.yml')
+
+    # nuevo YAML en la memoria (como texto)
+    new_yaml = yaml.dump(decap_config, allow_unicode=True, sort_keys=False)
+    
+    rewrite = True
+    # si el archivo ya existe y qué dice adentro
+    if os.path.exists(config_output_path):
+        with open(config_output_path, 'r', encoding='utf-8') as f:
+            yaml_existing = f.read()
+        # si el yaml existente es igual al nuevo, no reescribimos     
+        if new_yaml == yaml_existing:
+            rewrite = False
+            
+    # tocamos el disco duro si hubo un cambio real como una carpeta nueva
+    if rewrite:
+        with open(config_output_path, 'w', encoding='utf-8') as f:
+            f.write(new_yaml)
+
 
 def on_page_markdown(markdown, page, config, files):
     if not markdown.strip().startswith('# '):
         # tomamos el nombre del archivo 
         title = page.title if page.title else os.path.basename(page.file.src_path).replace('.md', '')
         markdown = f"# {title}\n\n{markdown}"
+    
     # buscamos bloques $$ y aseguramos el salto de línea \n\n
     pattern_latex = r'\s*\$\$(.*?)\$\$\s*'
     markdown = re.sub(pattern_latex, r'\n\n$$\1$$\n\n', markdown, flags=re.DOTALL)

@@ -1,55 +1,100 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Editor Sveltia</title>
-    
-    <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
-    
-    <script>
-      CMS.registerPreviewStyle("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
-      CMS.registerPreviewStyle("/stylesheets/extra.css");
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Editor ERGO</title>
 
-      CMS.registerPreviewStyle(`
-        body {
-          font-family: 'Inter', sans-serif;
-          color: rgba(0, 0, 0, 0.87);
-          line-height: 1.6;
-          padding: 20px;
-          background-color: white;
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked-katex-extension/lib/index.umd.js"></script>
+  <style>
+    #nc-root {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
+    }
+
+    div[class*="AppHeader"] {
+      background-color: #000000 !important;
+    }
+
+    button[class*="Button"] {
+      border-radius: 6px !important;
+      font-weight: 500 !important;
+    }
+
+  </style>
+</head>
+
+<body>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script src="https://unpkg.com/decap-cms-locales@^3.0.0/dist/decap-cms-locales-es.js"></script>
+  <script>
+    const h = window.h;
+    const createClass = window.createClass;
+
+    // registramos el plugin de kateX para marked una sola vez
+    marked.use(markedKatex({ throwOnError: false, trust: true }));
+    var PostPreview = createClass({
+      // lógica para procesar los links e imágenes
+      processContent: function (text) {
+        if (!text) return '';
+        return text
+          .replace(/!\[\[(.*?)\]\]/g, (_, p1) => {
+            const name = p1.split('|')[0].trim();
+            return `\n\n![${name}](../assets/comunidad/${name})\n\n`;
+          })
+          .replace(/\[\[(.*?)\]\]/g, (_, p1) => {
+            const parts = p1.split('|');
+            const name = parts[0].trim();
+            const label = parts[1] ? parts[1].trim() : name;
+            return `[${label}](../${name})`;
+          });
+      },
+
+      // se ejecuta automáticamente con cada tecla que presiona el usuario
+      render: function () {
+        const body = this.props.entry.getIn(['data', 'body']) || '';
+        const processed = this.processContent(body);
+        const html = marked.parse(processed);
+
+        // devolvemos el HTML al panel de la derecha
+        return h('div', { className: 'markdown-body' },
+          h('div', { dangerouslySetInnerHTML: { __html: html } })
+        );
+      }
+    });
+
+    // buscamos en el config.yml las carpetas
+    fetch('config.yml')
+      .then(response => response.text())
+      .then(yamlText => {
+        const regex = /name:\s*['"]?(oficial[a-zA-Z0-9_]*|comunidad[a-zA-Z0-9_]*)['"]?/g;
+        let match;
+        
+        while ((match = regex.exec(yamlText)) !== null) {
+          const nombreColeccion = match[1];
+          CMS.registerPreviewTemplate(nombreColeccion, PostPreview);
         }
-        h1, h2, h3, h4, h5, h6 {
-          color: #3f51b5; /* Tu primary color (Indigo) */
-          font-weight: 600;
-          margin-top: 1.5em;
-        }
-        a { color: #536dfe; text-decoration: none; } /* Tu accent color */
-        a:hover { text-decoration: underline; }
-        code {
-          font-family: 'Inter', monospace;
-          background-color: #f5f5f5;
-          padding: 0.2em 0.4em;
-          border-radius: 3px;
-          font-size: 0.85em;
-        }
-        pre {
-          background-color: #f5f5f5;
-          padding: 1em;
-          border-radius: 4px;
-          overflow-x: auto;
-        }
-        blockquote {
-          border-left: 4px solid #3f51b5;
-          margin: 1.5em 0;
-          padding-left: 1em;
-          color: #666;
-        }
-        /* Ajuste para que las imágenes se centren como en tu CSS */
-        img { display: block; margin: 2em auto; max-width: 100%; border-radius: 4px; }
-      `, { raw: true });
-    </script>
-  </head>
-  <body></body>
+      })
+      .catch(error => console.error("Error al leer config.yml:", error));
+
+    // inyección de estilos en el iframe
+    CMS.registerPreviewStyle("https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css");
+    CMS.registerPreviewStyle("https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css");
+
+    CMS.registerPreviewStyle(`
+      .markdown-body { 
+        background-color: white !important; 
+        color: #24292f !important; 
+        min-height: 100vh; 
+        padding: 30px; 
+      }
+    `, { raw: true });
+  </script>
+</body>
+
 </html>

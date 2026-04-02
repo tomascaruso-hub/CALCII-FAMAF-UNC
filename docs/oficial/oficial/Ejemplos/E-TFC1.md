@@ -1,3 +1,4 @@
+
 ##### **Ejemplo.** Encuentre $\frac{d}{dx} \int_1^{x^4} \sec t \, dt.$
 El problema es calcular la derivada con respecto a $x$ de la integral definida.
 Vemos que el límite inferior es constante, mientras que el superior es $x^4$ que depende de $x$. 
