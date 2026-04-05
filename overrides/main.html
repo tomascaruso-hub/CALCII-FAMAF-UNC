@@ -3,26 +3,38 @@
 {% block content %}
 {{ super() }}
 
-<!-- botón de edición flotante (solo desktop) -->
-<a href="{{ config.repo_url }}/edit/main/docs/{{ page.file.src_path }}" 
-   title="Mejorar esta nota"
-   class="famaf-edit-button"
-   target="_blank"
-   rel="noopener">
-  <span class="twemoji">
-    {% include ".icons/material/pencil-outline.svg" %}
-  </span>
-</a>
+<div class="famaf-floating-buttons">
+  <a href="{{ base_url }}/admin/" 
+     title="Mejorar con Decap CMS"
+     class="famaf-btn-flotante decap-btn"
+     target="_blank"
+     rel="noopener">
+    <span class="twemoji">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z"/></svg>
+    </span>
+  </a>
 
-<a href="{{ config.repo_url }}/edit/main/docs/{{ page.file.src_path }}" 
-   class="famaf-edit-inline"
-   target="_blank"
-   rel="noopener">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z"/>
-  </svg>
-  Mejorar esta nota en GitHub.
-</a>
+  <a href="{{ config.repo_url }}/edit/main/docs/{{ page.file.src_path }}" 
+     title="Editar en GitHub"
+     class="famaf-btn-flotante github-btn"
+     target="_blank"
+     rel="noopener">
+    <span class="twemoji">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"/></svg>
+    </span>
+  </a>
+</div>
+
+<div class="famaf-inline-buttons">
+  <a href="{{ base_url }}/admin/" class="famaf-btn-inline decap-btn-inline" target="_blank" rel="noopener">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z"/></svg>
+    Mejorar con Decap CMS
+  </a>
+  <a href="{{ config.repo_url }}/edit/main/docs/{{ page.file.src_path }}" class="famaf-btn-inline github-btn-inline" target="_blank" rel="noopener">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"/></svg>
+    Editar en GitHub
+  </a>
+</div>
 
 <hr>
 <h2 id="__comments"></h2>
@@ -71,75 +83,61 @@
 
 <button id="mi-boton-oraculo" aria-label="Abrir asistente de IA">
   <svg id="icono-abrir" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M4.49999 20.25C4.37892 20.2521 4.25915 20.2248 4.1509 20.1705C4.04266 20.1163 3.94916 20.0366 3.87841 19.9383C3.80766 19.8401 3.76175 19.7261 3.74461 19.6063C3.72747 19.4864 3.73961 19.3641 3.77999 19.25L5.37999 14C5.03175 13.0973 4.85539 12.1375 4.85999 11.17C4.8584 10.1057 5.06918 9.0518 5.47999 8.06999C5.88297 7.13047 6.45975 6.27549 7.17999 5.54999C7.90382 4.82306 8.76344 4.24545 9.70999 3.84999C10.6889 3.4344 11.7415 3.22021 12.805 3.22021C13.8685 3.22021 14.9211 3.4344 15.9 3.84999C17.3341 4.46429 18.5573 5.48452 19.4191 6.7851C20.2808 8.08568 20.7434 9.60985 20.75 11.17C20.7437 13.2771 19.9065 15.2966 18.42 16.79C17.6945 17.5102 16.8395 18.087 15.9 18.49C14.0091 19.2819 11.8865 19.3177 9.96999 18.59L4.71999 20.19C4.64977 20.22 4.57574 20.2402 4.49999 20.25ZM12.8 4.74999C11.5334 4.75547 10.2962 5.13143 9.24068 5.83153C8.18519 6.53164 7.35763 7.52528 6.85999 8.68999C6.19883 10.2911 6.19883 12.0889 6.85999 13.69C6.91957 13.8548 6.91957 14.0352 6.85999 14.2L5.62999 18.37L9.77999 17.11C9.94477 17.0504 10.1252 17.0504 10.29 17.11C11.0824 17.439 11.932 17.6083 12.79 17.6083C13.648 17.6083 14.4976 17.439 15.29 17.11C16.0708 16.7813 16.779 16.3018 17.3742 15.6989C17.9693 15.096 18.4397 14.3816 18.7583 13.5967C19.077 12.8118 19.2376 11.9717 19.231 11.1245C19.2244 10.2774 19.0508 9.4399 18.72 8.65999C18.2234 7.50094 17.398 6.51285 16.3459 5.81792C15.2937 5.123 14.0609 4.75171 12.8 4.74999Z"
-      fill="#ffffff" />
+    <path d="M4.49999 20.25C4.37892 20.2521 4.25915 20.2248 4.1509 20.1705C4.04266 20.1163 3.94916 20.0366 3.87841 19.9383C3.80766 19.8401 3.76175 19.7261 3.74461 19.6063C3.72747 19.4864 3.73961 19.3641 3.77999 19.25L5.37999 14C5.03175 13.0973 4.85539 12.1375 4.85999 11.17C4.8584 10.1057 5.06918 9.0518 5.47999 8.06999C5.88297 7.13047 6.45975 6.27549 7.17999 5.54999C7.90382 4.82306 8.76344 4.24545 9.70999 3.84999C10.6889 3.4344 11.7415 3.22021 12.805 3.22021C13.8685 3.22021 14.9211 3.4344 15.9 3.84999C17.3341 4.46429 18.5573 5.48452 19.4191 6.7851C20.2808 8.08568 20.7434 9.60985 20.75 11.17C20.7437 13.2771 19.9065 15.2966 18.42 16.79C17.6945 17.5102 16.8395 18.087 15.9 18.49C14.0091 19.2819 11.8865 19.3177 9.96999 18.59L4.71999 20.19C4.64977 20.22 4.57574 20.2402 4.49999 20.25ZM12.8 4.74999C11.5334 4.75547 10.2962 5.13143 9.24068 5.83153C8.18519 6.53164 7.35763 7.52528 6.85999 8.68999C6.19883 10.2911 6.19883 12.0889 6.85999 13.69C6.91957 13.8548 6.91957 14.0352 6.85999 14.2L5.62999 18.37L9.77999 17.11C9.94477 17.0504 10.1252 17.0504 10.29 17.11C11.0824 17.439 11.932 17.6083 12.79 17.6083C13.648 17.6083 14.4976 17.439 15.29 17.11C16.0708 16.7813 16.779 16.3018 17.3742 15.6989C17.9693 15.096 18.4397 14.3816 18.7583 13.5967C19.077 12.8118 19.2376 11.9717 19.231 11.1245C19.2244 10.2774 19.0508 9.4399 18.72 8.65999C18.2234 7.50094 17.398 6.51285 16.3459 5.81792C15.2937 5.123 14.0609 4.75171 12.8 4.74999Z" fill="#ffffff" />
   </svg>
-
-  <svg id="icono-cerrar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-    fill="currentColor" style="display: none;">
-    <path
-      d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
+  <svg id="icono-cerrar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
   </svg>
 </button>
 
-  <button id="mi-boton-oraculo" aria-label="Abrir asistente de IA">
-    <svg id="icono-abrir" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4.49999 20.25C4.37892 20.2521 4.25915 20.2248 4.1509 20.1705C4.04266 20.1163 3.94916 20.0366 3.87841 19.9383C3.80766 19.8401 3.76175 19.7261 3.74461 19.6063C3.72747 19.4864 3.73961 19.3641 3.77999 19.25L5.37999 14C5.03175 13.0973 4.85539 12.1375 4.85999 11.17C4.8584 10.1057 5.06918 9.0518 5.47999 8.06999C5.88297 7.13047 6.45975 6.27549 7.17999 5.54999C7.90382 4.82306 8.76344 4.24545 9.70999 3.84999C10.6889 3.4344 11.7415 3.22021 12.805 3.22021C13.8685 3.22021 14.9211 3.4344 15.9 3.84999C17.3341 4.46429 18.5573 5.48452 19.4191 6.7851C20.2808 8.08568 20.7434 9.60985 20.75 11.17C20.7437 13.2771 19.9065 15.2966 18.42 16.79C17.6945 17.5102 16.8395 18.087 15.9 18.49C14.0091 19.2819 11.8865 19.3177 9.96999 18.59L4.71999 20.19C4.64977 20.22 4.57574 20.2402 4.49999 20.25ZM12.8 4.74999C11.5334 4.75547 10.2962 5.13143 9.24068 5.83153C8.18519 6.53164 7.35763 7.52528 6.85999 8.68999C6.19883 10.2911 6.19883 12.0889 6.85999 13.69C6.91957 13.8548 6.91957 14.0352 6.85999 14.2L5.62999 18.37L9.77999 17.11C9.94477 17.0504 10.1252 17.0504 10.29 17.11C11.0824 17.439 11.932 17.6083 12.79 17.6083C13.648 17.6083 14.4976 17.439 15.29 17.11C16.0708 16.7813 16.779 16.3018 17.3742 15.6989C17.9693 15.096 18.4397 14.3816 18.7583 13.5967C19.077 12.8118 19.2376 11.9717 19.231 11.1245C19.2244 10.2774 19.0508 9.4399 18.72 8.65999C18.2234 7.50094 17.398 6.51285 16.3459 5.81792C15.2937 5.123 14.0609 4.75171 12.8 4.74999Z" fill="#ffffff" />
-    </svg>
-    <svg id="icono-cerrar" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
-      <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
-    </svg>
-  </button>
+<div id="mi-ventana-oraculo" class="oraculo-hidden">
+  <iframe 
+    src="about:blank" 
+    data-src="https://udify.app/chat/ejLjAOv6gG2BsqlV" 
+    style="width: 100%; height: 100%; border: none;"
+    title="Asistente de IA"
+    loading="lazy">
+  </iframe>
+</div>
 
-  <div id="mi-ventana-oraculo" class="oraculo-hidden">
-    <iframe 
-      src="about:blank" 
-      data-src="https://udify.app/chat/ejLjAOv6gG2BsqlV" 
-      style="width: 100%; height: 100%; border: none;"
-      title="Asistente de IA"
-      loading="lazy">
-    </iframe>
-  </div>
+<script>
+  const boton = document.getElementById('mi-boton-oraculo');
+  const ventana = document.getElementById('mi-ventana-oraculo');
+  const iconoAbrir = document.getElementById('icono-abrir');
+  const iconoCerrar = document.getElementById('icono-cerrar');
+  const iframeDify = ventana.querySelector('iframe');
+  let iframeCargado = false;
 
-  <script>
-    const boton = document.getElementById('mi-boton-oraculo');
-    const ventana = document.getElementById('mi-ventana-oraculo');
-    const iconoAbrir = document.getElementById('icono-abrir');
-    const iconoCerrar = document.getElementById('icono-cerrar');
-    const iframeDify = ventana.querySelector('iframe');
-    let iframeCargado = false;
+  boton.addEventListener('click', () => {
+    const estaAbierto = ventana.classList.contains('oraculo-visible');
 
-    boton.addEventListener('click', () => {
-      const estaAbierto = ventana.classList.contains('oraculo-visible');
-
-      if (!estaAbierto) {
-        if (!iframeCargado) {
-          iframeDify.src = iframeDify.dataset.src;
-          iframeCargado = true;
-        }
-        ventana.classList.remove('oraculo-hidden');
-        ventana.classList.add('oraculo-visible');
-        iconoAbrir.style.display = 'none';
-        iconoCerrar.style.display = 'block';
-        document.body.classList.add('oraculo-abierto');
-        boton.setAttribute('aria-label', 'Cerrar asistente de IA');
-      } else {
-        ventana.classList.remove('oraculo-visible');
-        ventana.classList.add('oraculo-hidden');
-        iconoAbrir.style.display = 'block';
-        iconoCerrar.style.display = 'none';
-        document.body.classList.remove('oraculo-abierto');
-        boton.setAttribute('aria-label', 'Abrir asistente de IA');
+    if (!estaAbierto) {
+      if (!iframeCargado) {
+        iframeDify.src = iframeDify.dataset.src;
+        iframeCargado = true;
       }
-    });
+      ventana.classList.remove('oraculo-hidden');
+      ventana.classList.add('oraculo-visible');
+      iconoAbrir.style.display = 'none';
+      iconoCerrar.style.display = 'block';
+      document.body.classList.add('oraculo-abierto');
+      boton.setAttribute('aria-label', 'Cerrar asistente de IA');
+    } else {
+      ventana.classList.remove('oraculo-visible');
+      ventana.classList.add('oraculo-hidden');
+      iconoAbrir.style.display = 'block';
+      iconoCerrar.style.display = 'none';
+      document.body.classList.remove('oraculo-abierto');
+      boton.setAttribute('aria-label', 'Abrir asistente de IA');
+    }
+  });
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && ventana.classList.contains('oraculo-visible')) {
-        boton.click();
-      }
-    });
-  </script>
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && ventana.classList.contains('oraculo-visible')) {
+      boton.click();
+    }
+  });
+</script>
 
 
 <div id="modal-compartir">

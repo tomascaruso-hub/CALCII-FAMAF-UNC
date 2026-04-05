@@ -36,6 +36,18 @@ collections:
   - label: Cuerpo
     name: body
     widget: markdown
+  - label: Autoría y Responsabilidad (Obligatorio)
+    name: acuerdos_legales
+    widget: select
+    options:
+    - No estoy de acuerdo
+    - Acepto
+    default: No estoy de acuerdo
+    hint: 👉 Desplegá el menú y seleccioná "Acepto..." para habilitar el guardado.
+    pattern:
+    - Acepto
+    - ' Debes abrir el menú desplegable y aceptar las condiciones de uso y distribución
+      para publicar/editar.'
 - name: comunidad_general
   label: '📚 Comunidad: general'
   folder: docs/comunidad/general
@@ -49,6 +61,18 @@ collections:
   - label: Cuerpo
     name: body
     widget: markdown
+  - label: Autoría y Responsabilidad (Obligatorio)
+    name: acuerdos_legales
+    widget: select
+    options:
+    - No estoy de acuerdo
+    - Acepto
+    default: No estoy de acuerdo
+    hint: 👉 Desplegá el menú y seleccioná "Acepto..." para habilitar el guardado.
+    pattern:
+    - Acepto
+    - ' Debes abrir el menú desplegable y aceptar las condiciones de uso y distribución
+      para publicar/editar.'
 - name: oficial_raiz
   label: 📂 Oficial (Raíz / Crear Carpeta)
   folder: docs/oficial
@@ -77,6 +101,18 @@ collections:
   - label: Cuerpo
     name: body
     widget: markdown
+  - label: Autoría y Responsabilidad (Obligatorio)
+    name: acuerdos_legales
+    widget: select
+    options:
+    - No estoy de acuerdo
+    - Acepto
+    default: No estoy de acuerdo
+    hint: 👉 Desplegá el menú y seleccioná "Acepto..." para habilitar el guardado.
+    pattern:
+    - Acepto
+    - ' Debes abrir el menú desplegable y aceptar las condiciones de uso y distribución
+      para publicar/editar.'
 - name: oficial_conceptos
   label: '📚 Oficial: Conceptos'
   folder: docs/oficial/Conceptos
@@ -90,6 +126,18 @@ collections:
   - label: Cuerpo
     name: body
     widget: markdown
+  - label: Autoría y Responsabilidad (Obligatorio)
+    name: acuerdos_legales
+    widget: select
+    options:
+    - No estoy de acuerdo
+    - Acepto
+    default: No estoy de acuerdo
+    hint: 👉 Desplegá el menú y seleccioná "Acepto..." para habilitar el guardado.
+    pattern:
+    - Acepto
+    - ' Debes abrir el menú desplegable y aceptar las condiciones de uso y distribución
+      para publicar/editar.'
 - name: oficial_series_de_potencias___u3
   label: '📚 Oficial: Series de potencias - U3'
   folder: docs/oficial/Series de potencias - U3
@@ -103,6 +151,18 @@ collections:
   - label: Cuerpo
     name: body
     widget: markdown
+  - label: Autoría y Responsabilidad (Obligatorio)
+    name: acuerdos_legales
+    widget: select
+    options:
+    - No estoy de acuerdo
+    - Acepto
+    default: No estoy de acuerdo
+    hint: 👉 Desplegá el menú y seleccioná "Acepto..." para habilitar el guardado.
+    pattern:
+    - Acepto
+    - ' Debes abrir el menú desplegable y aceptar las condiciones de uso y distribución
+      para publicar/editar.'
 - name: oficial_u1_u2
   label: '📚 Oficial: U1-U2'
   folder: docs/oficial/U1-U2
@@ -116,3 +176,15 @@ collections:
   - label: Cuerpo
     name: body
     widget: markdown
+  - label: Autoría y Responsabilidad (Obligatorio)
+    name: acuerdos_legales
+    widget: select
+    options:
+    - No estoy de acuerdo
+    - Acepto
+    default: No estoy de acuerdo
+    hint: 👉 Desplegá el menú y seleccioná "Acepto..." para habilitar el guardado.
+    pattern:
+    - Acepto
+    - ' Debes abrir el menú desplegable y aceptar las condiciones de uso y distribución
+      para publicar/editar.'

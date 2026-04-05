@@ -2,7 +2,9 @@ nav:
   - Bienvenido/a: index.md
   - comunidad
   - oficial
-  - Conversor OCR: ocr.md
-  - Contribuir: admin
-  - Guía de Contribución: contribution-guide.md
-  - Índice: tags.md
+  - Herramientas y Recursos:
+    - Conversor OCR: ocr.md
+    - Contribuir: admin
+    - Guía de Contribución: contribution-guide.md
+    - Índice: tags.md
+  

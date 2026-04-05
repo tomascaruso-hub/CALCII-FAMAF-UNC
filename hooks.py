@@ -59,7 +59,19 @@ def on_config(config):
                 },
                 {'label': 'Título', 'name': 'title', 'widget': 'string',
                  'hint': 'El título de la nota.'},
-                {'label': 'Cuerpo', 'name': 'body', 'widget': 'markdown'}
+                {'label': 'Cuerpo', 'name': 'body', 'widget': 'markdown'},
+                 {
+                            'label': 'Autoría y Responsabilidad (Obligatorio)',
+                            'name': 'check_autoria_responsabilidad',
+                            'widget': 'select',
+                            'options': [
+                                'No estoy de acuerdo',
+                                'Acepto'
+                            ],
+                            'default': 'No estoy de acuerdo',
+                            'hint': '👉 Desplegá el menú y seleccioná "Acepto..." para habilitar el guardado.',
+                            'pattern': ['Acepto', ' Debes abrir el menú desplegable y aceptar las condiciones de uso y distribución para publicar/editar.']
+                        },
             ]
         })
 
@@ -84,7 +96,19 @@ def on_config(config):
                         'summary': '{{title}}',
                         'fields': [
                             {'label': 'Título', 'name': 'title', 'widget': 'string'},
-                            {'label': 'Cuerpo', 'name': 'body', 'widget': 'markdown'}
+                            {'label': 'Cuerpo', 'name': 'body', 'widget': 'markdown'},
+                            {
+                            'label': 'Autoría y Responsabilidad (Obligatorio)',
+                            'name': 'check_autoria_responsabilidad',
+                            'widget': 'select',
+                            'options': [
+                                'No estoy de acuerdo',
+                                'Acepto'
+                            ],
+                            'default': 'No estoy de acuerdo',
+                            'hint': '👉 Desplegá el menú y seleccioná "Acepto..." para habilitar el guardado.',
+                            'pattern': ['Acepto', ' Debes abrir el menú desplegable y aceptar las condiciones de uso y distribución para publicar/editar.']
+                        },
                         ]
                     })
 

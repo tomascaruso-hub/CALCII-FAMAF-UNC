@@ -8,16 +8,49 @@ article p img, article figure img { display: block; margin: 2em auto !important;
 [data-md-color-scheme="slate"] .md-logo img { content: url('../assets/logo2.png'); }
 .md-content { position: relative; }
 
-/* boton edicion  */
-.famaf-edit-button { position: absolute; right: 0; top: 10px; color: var(--md-secondary-fg-color) !important; transition: color .3s, transform .3s; z-index: 10; }
-.famaf-edit-button:hover { color: var(--md-accent-fg-color) !important; }
-.famaf-edit-button svg { width: 20px; height: 20px; fill: currentColor; }
-@media screen and (max-width: 76.1875em) { .famaf-edit-button { top: -30px; } }
-.famaf-edit-button { position: fixed; bottom: 90px; right: 20px; z-index: 9997; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--md-accent-fg-color, #536dfe); color: #fff !important; box-shadow: 0 3px 10px rgba(0,0,0,.25); transition: transform .2s ease, box-shadow .2s ease; text-decoration: none; }
-.famaf-edit-button:hover, .famaf-edit-button:focus { text-decoration: none; color: #fff !important; }
-.famaf-edit-button .twemoji { display: flex; align-items: center; justify-content: center; }
-.famaf-edit-button .twemoji svg { width: 22px; height: 22px; fill: currentColor; }
-.famaf-edit-inline { display: none; }
+/* --- BOTONES FLOTANTES (DESKTOP) --- */
+.famaf-floating-buttons {
+  position: fixed;
+  top: 10px;
+  right: 12px;
+  z-index: 9997;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; 
+}
+
+.famaf-btn-flotante {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,.25);
+  transition: transform .2s ease, box-shadow .2s ease;
+  text-decoration: none;
+  color: #fff !important;
+}
+
+.famaf-btn-flotante:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,.3);
+  text-decoration: none;
+}
+
+.famaf-btn-flotante svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.decap-btn { background: var(--md-accent-fg-color, #536dfe); } 
+.github-btn { background: #24292e; } 
+[data-md-color-scheme="slate"] .github-btn { background: #e7e9ea; color: #0f1419 !important; }
+
+.famaf-inline-buttons {
+  display: none; 
+}
 
 /* chatbot */
 #mi-boton-oraculo { position: fixed; bottom: 20px; right: 20px; z-index: 9999; width: 56px; height: 56px; border-radius: 50%; padding: 0; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; background: var(--md-primary-fg-color, #3f51b5) !important; color: #fff !important; box-shadow: 0 4px 14px rgba(0,0,0,.35); transition: transform .2s ease, box-shadow .2s ease; }
@@ -62,15 +95,52 @@ article p img, article figure img { display: block; margin: 2em auto !important;
 @media screen and (max-width: 1024px) and (min-width: 769px) {
   #mi-ventana-oraculo { width: 340px; height: 65vh; max-height: 550px; }
 }
+
 @media screen and (max-width: 768px) {
-  .famaf-edit-button { display: none !important; }
-  .famaf-edit-inline { display: flex; align-items: center; gap: 8px; margin-top: 1.5rem; padding: 12px 18px; border-radius: 10px; background: var(--md-code-bg-color, #f5f5f5); color: var(--md-accent-fg-color, #536dfe) !important; text-decoration: none; font-size: .85rem; font-weight: 500; border: 1px solid var(--md-default-fg-color--lightest, #e0e0e0); transition: background .2s ease; }
-  .famaf-edit-inline:hover { background: var(--md-accent-fg-color--transparent, rgba(83,109,254,.1)); text-decoration: none; }
-  .famaf-edit-inline svg { width: 18px; height: 18px; fill: currentColor; flex-shrink: 0; }
+  .famaf-floating-buttons { display: none !important; }
+  
+  .famaf-inline-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 1.5rem;
+  }
+  
+  .famaf-btn-inline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 18px;
+    border-radius: 10px;
+    background: var(--md-code-bg-color, #f5f5f5);
+    text-decoration: none;
+    font-size: .85rem;
+    font-weight: 500;
+    border: 1px solid var(--md-default-fg-color--lightest, #e0e0e0);
+    transition: background .2s ease;
+  }
+  
+  .famaf-btn-inline:hover {
+    background: var(--md-accent-fg-color--transparent, rgba(83,109,254,.1));
+    text-decoration: none;
+  }
+  
+  .famaf-btn-inline svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    flex-shrink: 0;
+  }
+
+  .decap-btn-inline { color: var(--md-accent-fg-color, #536dfe) !important; }
+  .github-btn-inline { color: #24292e !important; }
+  [data-md-color-scheme="slate"] .github-btn-inline { color: #e8e8e8 !important; }
+
   #mi-boton-oraculo { width: 50px; height: 50px; bottom: 16px; right: 14px; }
   #mi-boton-oraculo svg { width: 24px; height: 24px; }
   #mi-ventana-oraculo { bottom: 0; right: 0; left: 0; width: 100%; height: 100%; max-height: 100%; border-radius: 0; border: none; }
-  body.oraculo-abierto .famaf-edit-inline { display: none; }
+  
+  body.oraculo-abierto .famaf-inline-buttons { display: none; }
   body.oraculo-abierto #mi-boton-oraculo { bottom: auto; top: 90px; right: 12px; width: 40px; height: 40px; z-index: 10000; background: rgba(0,0,0,.15) !important; box-shadow: 0 2px 8px rgba(0,0,0,.2); }
   body.oraculo-abierto #mi-boton-oraculo svg { width: 20px; height: 20px; }
   body.oraculo-abierto #mi-boton-oraculo #icono-cerrar { color: #fff !important; }
@@ -78,9 +148,11 @@ article p img, article figure img { display: block; margin: 2em auto !important;
   .modal-compartir__grid { grid-template-columns: 1fr 1fr; gap: 8px; }
   .modal-compartir__btn { padding: 10px 12px; font-size: .78rem; }
 }
+
 @media screen and (max-width: 360px) {
   .modal-compartir__grid { grid-template-columns: 1fr; }
 }
+
 .md-source-file__fact:has(img) {
     font-size: 0 !important; 
 }

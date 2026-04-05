@@ -5,4 +5,3 @@
 
 ## Detalles del contenido
 - [ ] **Citas:** Si usé ideas de otros, mencioné la fuente al final del archivo. (Opcional para Comunidad)
-- [ ] **LaTeX:** Revisé que las fórmulas se vean bien.

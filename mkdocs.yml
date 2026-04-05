@@ -1,5 +1,5 @@
-site_name: !ENV [SITE_NAME, "Notas FAMAF"]
-site_description: !ENV [SITE_DESCRIPTION, "Apuntes colaborativos y ejercicios resueltos para estudiantes de la FAMAF - UNC."]
+site_name: !ENV [SITE_NAME, "ERGO"]
+site_description: !ENV [SITE_DESCRIPTION, "Sitio estático para notas colaborativas"]
 site_url: !ENV [SITE_URL, "https://tomasccc.github.io/"]
 
 repo_url: !ENV [REPO_URL, "https://github.com/tomasccc/ergo"]
@@ -13,6 +13,8 @@ theme:
   favicon: assets/logo2.png  
   features:
     - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
     - navigation.top
     - navigation.footer
     - navigation.tracking
