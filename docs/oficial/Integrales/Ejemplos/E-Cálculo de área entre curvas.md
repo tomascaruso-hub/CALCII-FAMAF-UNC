@@ -5,7 +5,7 @@ Determine el área de la región acotada por arriba por $y = e^x$, por abajo por
 La región se muestra en la figura. La curva que limita la parte superior es $y = e^x$, y la curva del límite inferior es $y = x$. De este modo usamos la fórmula del área con $f(x) = e^x$, $g(x) = x$, $a = 0$ y $b = 1$.
 $$A = \int_0^1 (e^x - x) \, dx = e^x - \frac{1}{2} x^2 \big|_0^1$$
 $$= e - \frac{1}{2} - 1 = e - 1.5$$
-En la figura, vemos se toma un rectángulo representativo de aproximación cuyo ancho es $\Delta{x}$ como recordatorio del procedimiento realizado en el apartado [[1. El problema del área]].
+En la figura, vemos se toma un rectángulo representativo de aproximación cuyo ancho es $\Delta{x}$ como recordatorio del procedimiento realizado en el apartado [[docs/oficial/Sucesiones y Series - U2/Ejemplos/1. El problema del área]].
 ****
 ##### **Ejemplo 2**. Determinando puntos de encuentro
 ![[Pasted image 20250829200931.png]]
