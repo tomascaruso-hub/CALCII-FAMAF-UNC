@@ -4,8 +4,8 @@ backend:
   name: github
   repo: tomasccc/CALCII-FAMAF-UNC
   branch: cms-tests
-publish_mode: simple
-media_folder: docs/assets/comunidad
+publish_mode: editorial_workflow
+media_folder: docs/oficial/
 public_folder: /assets/comunidad
 collections:
 - name: comunidad_raiz
@@ -37,7 +37,7 @@ collections:
     name: body
     widget: markdown
   - label: Autoría y Responsabilidad (Obligatorio)
-    name: acuerdos_legales
+    name: check_autoria_responsabilidad
     widget: select
     options:
     - No estoy de acuerdo
@@ -62,7 +62,7 @@ collections:
     name: body
     widget: markdown
   - label: Autoría y Responsabilidad (Obligatorio)
-    name: acuerdos_legales
+    name: check_autoria_responsabilidad
     widget: select
     options:
     - No estoy de acuerdo
@@ -102,7 +102,7 @@ collections:
     name: body
     widget: markdown
   - label: Autoría y Responsabilidad (Obligatorio)
-    name: acuerdos_legales
+    name: check_autoria_responsabilidad
     widget: select
     options:
     - No estoy de acuerdo
@@ -127,7 +127,7 @@ collections:
     name: body
     widget: markdown
   - label: Autoría y Responsabilidad (Obligatorio)
-    name: acuerdos_legales
+    name: check_autoria_responsabilidad
     widget: select
     options:
     - No estoy de acuerdo
@@ -152,7 +152,7 @@ collections:
     name: body
     widget: markdown
   - label: Autoría y Responsabilidad (Obligatorio)
-    name: acuerdos_legales
+    name: check_autoria_responsabilidad
     widget: select
     options:
     - No estoy de acuerdo
@@ -177,7 +177,32 @@ collections:
     name: body
     widget: markdown
   - label: Autoría y Responsabilidad (Obligatorio)
-    name: acuerdos_legales
+    name: check_autoria_responsabilidad
+    widget: select
+    options:
+    - No estoy de acuerdo
+    - Acepto
+    default: No estoy de acuerdo
+    hint: 👉 Desplegá el menú y seleccioná "Acepto..." para habilitar el guardado.
+    pattern:
+    - Acepto
+    - ' Debes abrir el menú desplegable y aceptar las condiciones de uso y distribución
+      para publicar/editar.'
+- name: oficial_general
+  label: '📚 Oficial: general'
+  folder: docs/oficial/general
+  create: true
+  extension: md
+  summary: '{{title}}'
+  fields:
+  - label: Título
+    name: title
+    widget: string
+  - label: Cuerpo
+    name: body
+    widget: markdown
+  - label: Autoría y Responsabilidad (Obligatorio)
+    name: check_autoria_responsabilidad
     widget: select
     options:
     - No estoy de acuerdo
