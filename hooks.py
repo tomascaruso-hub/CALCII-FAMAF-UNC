@@ -27,7 +27,7 @@ def on_config(config):
             'name': 'github',
             'repo': 'tomasccc/CALCII-FAMAF-UNC',
             'branch': 'main',
-            'base_url': 'https://decap-proxy.tomycaruso.workers.dev/'
+            'base_url': 'https://decap-proxy.tomycaruso.workers.dev'
         },
         'publish_mode': 'editorial_workflow',
         'media_folder': 'docs/assets/comunidad',
