@@ -4,8 +4,8 @@ backend:
   name: github
   repo: tomasccc/CALCII-FAMAF-UNC
   branch: cms-tests
-publish_mode: editorial_workflow
-media_folder: docs/oficial/
+publish_mode: simple
+media_folder: docs/assets/comunidad
 public_folder: /assets/comunidad
 collections:
 - name: comunidad_raiz

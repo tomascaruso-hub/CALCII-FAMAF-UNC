@@ -21,14 +21,14 @@ def on_config(config):
 
     # configuración base 
     decap_config = {
-        'local_backend': True,
+        'local_backend': False,
         'locale': 'es',
         'backend': {
             'name': 'github',
             'repo': 'tomasccc/CALCII-FAMAF-UNC',
-            'branch': 'cms-tests'
+            'branch': 'main'
         },
-        'publish_mode': 'simple',
+        'publish_mode': 'editorial_workflow',
         'media_folder': 'docs/assets/comunidad',
         'public_folder': '/assets/comunidad',
         'collections': [] # lo llenamos con las carpetas que encontremos en comunidad/ y oficial/
