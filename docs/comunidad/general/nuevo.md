@@ -5,4 +5,4 @@ check_autoria_responsabilidad: Acepto
 ---
 sdasdasdas
 
-cambiosaisdo$$asdasd$$
+cambiosaisdo $$asdasd$$
