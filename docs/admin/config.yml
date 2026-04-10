@@ -5,6 +5,7 @@ backend:
   repo: tomasccc/CALCII-FAMAF-UNC
   branch: main
   base_url: https://decap-proxy.tomycaruso.workers.dev
+  open_authoring: true
 publish_mode: editorial_workflow
 media_folder: docs/assets/comunidad
 public_folder: /assets/comunidad
