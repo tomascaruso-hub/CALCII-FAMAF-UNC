@@ -6,6 +6,10 @@ backend:
   branch: main
   base_url: https://decap-proxy.tomycaruso.workers.dev
   open_authoring: true
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: '-'
 publish_mode: editorial_workflow
 media_folder: docs/assets/comunidad
 public_folder: /assets/comunidad
@@ -51,113 +55,9 @@ collections:
     - Acepto
     - ' Debes abrir el menú desplegable y aceptar las condiciones de uso y distribución
       para publicar/editar.'
-- name: comunidad_nueva
-  label: '📚 Comunidad: Nueva'
-  folder: docs/comunidad/Nueva
-  create: true
-  delete: true
-  extension: md
-  summary: '{{title}}'
-  fields:
-  - label: Título
-    name: title
-    widget: string
-  - label: Cuerpo
-    name: body
-    widget: markdown
-  - label: Autoría y Responsabilidad (Obligatorio)
-    name: check_autoria_responsabilidad
-    widget: select
-    options:
-    - No estoy de acuerdo
-    - Acepto
-    default: No estoy de acuerdo
-    hint: 👉 Desplegá el menú y seleccioná "Acepto..." para habilitar el guardado.
-    pattern:
-    - Acepto
-    - ' Debes abrir el menú desplegable y aceptar las condiciones de uso y distribución
-      para publicar/editar.'
-- name: comunidad_asd
-  label: '📚 Comunidad: asd'
-  folder: docs/comunidad/asd
-  create: true
-  delete: true
-  extension: md
-  summary: '{{title}}'
-  fields:
-  - label: Título
-    name: title
-    widget: string
-  - label: Cuerpo
-    name: body
-    widget: markdown
-  - label: Autoría y Responsabilidad (Obligatorio)
-    name: check_autoria_responsabilidad
-    widget: select
-    options:
-    - No estoy de acuerdo
-    - Acepto
-    default: No estoy de acuerdo
-    hint: 👉 Desplegá el menú y seleccioná "Acepto..." para habilitar el guardado.
-    pattern:
-    - Acepto
-    - ' Debes abrir el menú desplegable y aceptar las condiciones de uso y distribución
-      para publicar/editar.'
 - name: comunidad_general
   label: '📚 Comunidad: general'
   folder: docs/comunidad/general
-  create: true
-  delete: true
-  extension: md
-  summary: '{{title}}'
-  fields:
-  - label: Título
-    name: title
-    widget: string
-  - label: Cuerpo
-    name: body
-    widget: markdown
-  - label: Autoría y Responsabilidad (Obligatorio)
-    name: check_autoria_responsabilidad
-    widget: select
-    options:
-    - No estoy de acuerdo
-    - Acepto
-    default: No estoy de acuerdo
-    hint: 👉 Desplegá el menú y seleccioná "Acepto..." para habilitar el guardado.
-    pattern:
-    - Acepto
-    - ' Debes abrir el menú desplegable y aceptar las condiciones de uso y distribución
-      para publicar/editar.'
-- name: comunidad_kids_withg
-  label: '📚 Comunidad: kids-withg'
-  folder: docs/comunidad/kids-withg
-  create: true
-  delete: true
-  extension: md
-  summary: '{{title}}'
-  fields:
-  - label: Título
-    name: title
-    widget: string
-  - label: Cuerpo
-    name: body
-    widget: markdown
-  - label: Autoría y Responsabilidad (Obligatorio)
-    name: check_autoria_responsabilidad
-    widget: select
-    options:
-    - No estoy de acuerdo
-    - Acepto
-    default: No estoy de acuerdo
-    hint: 👉 Desplegá el menú y seleccioná "Acepto..." para habilitar el guardado.
-    pattern:
-    - Acepto
-    - ' Debes abrir el menú desplegable y aceptar las condiciones de uso y distribución
-      para publicar/editar.'
-- name: comunidad_nueva_2
-  label: '📚 Comunidad: nueva'
-  folder: docs/comunidad/nueva
   create: true
   delete: true
   extension: md
@@ -248,9 +148,9 @@ collections:
     - Acepto
     - ' Debes abrir el menú desplegable y aceptar las condiciones de uso y distribución
       para publicar/editar.'
-- name: oficial_nueva_carpeta
-  label: '📚 Oficial: Nueva carpeta'
-  folder: docs/oficial/Nueva carpeta
+- name: oficial_integrales
+  label: '📚 Oficial: Integrales'
+  folder: docs/oficial/Integrales
   create: true
   delete: true
   extension: md
@@ -300,9 +200,9 @@ collections:
     - Acepto
     - ' Debes abrir el menú desplegable y aceptar las condiciones de uso y distribución
       para publicar/editar.'
-- name: oficial_general
-  label: '📚 Oficial: general'
-  folder: docs/oficial/general
+- name: oficial_sucesiones_y_series___u2
+  label: '📚 Oficial: Sucesiones y Series - U2'
+  folder: docs/oficial/Sucesiones y Series - U2
   create: true
   delete: true
   extension: md
@@ -326,9 +226,9 @@ collections:
     - Acepto
     - ' Debes abrir el menú desplegable y aceptar las condiciones de uso y distribución
       para publicar/editar.'
-- name: oficial_oficial
-  label: '📚 Oficial: oficial'
-  folder: docs/oficial/oficial
+- name: oficial_general
+  label: '📚 Oficial: general'
+  folder: docs/oficial/general
   create: true
   delete: true
   extension: md

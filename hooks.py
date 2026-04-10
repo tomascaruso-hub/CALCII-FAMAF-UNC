@@ -30,6 +30,11 @@ def on_config(config):
             'base_url': 'https://decap-proxy.tomycaruso.workers.dev',
             'open_authoring': True,
         },
+        'slug': {
+            'encoding': 'ascii',        
+            'clean_accents': True,      
+            'sanitize_replacement': '-' 
+        },
         'publish_mode': 'editorial_workflow',
         'media_folder': 'docs/assets/comunidad',
         'public_folder': '/assets/comunidad',
